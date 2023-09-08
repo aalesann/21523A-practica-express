@@ -4,6 +4,14 @@ const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
 
+// Conexión a Base de Datos
+const { sequelize } = require('./database');
+
+sequelize.authenticate()
+.then(() => console.log("Conexión a Base de datos Exitosa"))
+.catch( err => console.log('Error al conectar BD: ', err))
+
+
 require('ejs');
 require('dotenv').config() // Para poder usar las variables de entorno
 
