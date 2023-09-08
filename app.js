@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 require('ejs');
-require('dotenv').config()
+require('dotenv').config() // Para poder usar las variables de entorno
 
 const app = express()
 const port = process.env.PORT || 3000;

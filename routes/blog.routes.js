@@ -4,19 +4,21 @@
 const { Router } = require('express');
 const router = Router()
 
-router.get('/home', (req, res) => {
+router.get('/', (req, res) => {
     res.render('home')
 })
 
-router.post('/user', (req, res) => {
+router.post('/nueva-publicacion', (req, res) => {
     // Recibir datos por body
-    const { name, lastname, id } = req.body
+    const { titulo, detalle } = req.body
 
-    res.send({
-        name,
-        lastname,
-        id
-    })
+    // TODO: Se deben guardar los datos en una base de datos
+    console.log(titulo);
+    console.log(detalle);
+
+
+    return res.send({ msg: "Publicación guardada con éxito"})
+    
 })
 
 

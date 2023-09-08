@@ -1,16 +1,25 @@
 
-
-
+// Referencia al elemento de formulario html
 const formGuardar = document.querySelector("#form-guardar")
 
-formGuardar.addEventListener('submit', (e) => {
+
+formGuardar.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Se capturan los datos del formulario
-    const inputTitulo = document.querySelector('#titulo-post').value;
-    const inputDetalle = document.querySelector('#detalle-post').value;
+    const titulo = document.querySelector('#titulo-post').value;
+    const detalle = document.querySelector('#detalle-post').value;
 
     // Enviar al servidor
-    console.log(inputTitulo)
-    console.log(inputDetalle)
+    const response = await fetch('/nueva-publicacion', {
+        method: 'post',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify({ titulo, detalle})
+    })
+    const data = await response.json();
+
+    console.log(data.msg);
+
 })
