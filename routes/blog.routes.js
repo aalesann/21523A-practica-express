@@ -7,7 +7,8 @@ const {
     actualizarPublicacion,
     crearPublicacion,
     eliminarPublicacion,
-    obtenerPublicaciones
+    obtenerPublicaciones,
+    obtenerPublicacion
 } = require('../controllers/blog.controllers');
 
 
@@ -24,6 +25,11 @@ router.get('/admin', (req, res)=> {
     res.render('admin')
 })
 
+// Ruta para devolver la vista admin
+router.get('/admin/:id', (req, res)=> {
+    res.render('editar', { id: req.params.id })
+})
+
 
 
 
@@ -37,6 +43,9 @@ router.post('/publicacion', crearPublicacion);
 
 // Obtener todas las publicaciones
 router.get('/publicaciones', obtenerPublicaciones);
+
+// Obtener una publicación
+router.get('/publicacion/:id', obtenerPublicacion)
 
 // Actualizar una publicación
 router.put('/publicacion/:id', actualizarPublicacion);

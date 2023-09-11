@@ -10,7 +10,7 @@ formGuardar.addEventListener('submit', async (e) => {
     const descripcion = document.querySelector('#detalle-post').value;
     const url_imagen = document.querySelector('#url-img').value;
     const fecha = document.querySelector('#fecha').value;
-    
+
     // Enviar al servidor
     const response = await fetch('/publicacion', {
         method: 'post',
@@ -21,6 +21,7 @@ formGuardar.addEventListener('submit', async (e) => {
     })
     const data = await response.json();
 
-    console.log(data.msg);
+    alert(data.msg);
+    location.href = "/"
 
 })
