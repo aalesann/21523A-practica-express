@@ -3,24 +3,27 @@
 
 const { Router } = require('express');
 const router = Router()
+const {
+    actualizarPublicacion,
+    crearPublicacion,
+    eliminarPublicacion,
+    obtenerPublicaciones
+} = require('../controllers/blog.controllers');
 
 router.get('/', (req, res) => {
     res.render('home')
 })
 
-router.post('/nueva-publicacion', (req, res) => {
-    // Recibir datos por body
-    const { titulo, detalle } = req.body
+// Crear nueva publicación
+router.post('/publicacion', crearPublicacion)
 
-    // TODO: Se deben guardar los datos en una base de datos
-    console.log(titulo);
-    console.log(detalle);
+// Obtener todas las publicaciones
+router.get('/publicaciones', obtenerPublicaciones)
 
+// Actualizar una publicación
+router.put('/publicacion/:id', actualizarPublicacion)
 
-    return res.send({ msg: "Publicación guardada con éxito"})
-    
-})
-
-
+// Eliminar una publicación
+router.delete('/publicacion/:id', eliminarPublicacion)
 
 module.exports = router;

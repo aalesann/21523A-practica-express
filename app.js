@@ -30,8 +30,7 @@ app.use( express.static(path.join(__dirname, 'public')) )
 app.set('view engine', 'ejs')
 
 // Rutas
-app.use(require('./routes/blog.routes'))
-app.use(require('./routes/user.routes'))
+app.use(require('./routes/blog.routes'));
 
 
 app.listen(port, () => console.log(`Servidor en http://localhost:${port}`))
