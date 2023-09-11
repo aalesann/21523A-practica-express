@@ -10,20 +10,38 @@ const {
     obtenerPublicaciones
 } = require('../controllers/blog.controllers');
 
+
+// ==================================================
+//         Rutas para renderizar vistas
+// ==================================================
+
 router.get('/', (req, res) => {
     res.render('home')
 })
 
+// Ruta para devolver la vista admin
+router.get('/admin', (req, res)=> {
+    res.render('admin')
+})
+
+
+
+
+
+// ==================================================
+//         Rutas para CRUD de Publicaciones
+// ==================================================
+
 // Crear nueva publicación
-router.post('/publicacion', crearPublicacion)
+router.post('/publicacion', crearPublicacion);
 
 // Obtener todas las publicaciones
-router.get('/publicaciones', obtenerPublicaciones)
+router.get('/publicaciones', obtenerPublicaciones);
 
 // Actualizar una publicación
-router.put('/publicacion/:id', actualizarPublicacion)
+router.put('/publicacion/:id', actualizarPublicacion);
 
 // Eliminar una publicación
-router.delete('/publicacion/:id', eliminarPublicacion)
+router.delete('/publicacion/:id', eliminarPublicacion);
 
 module.exports = router;

@@ -2,12 +2,19 @@ const ctrl = {}
 const Publicaciones = require('../models/Publicaciones');
 
 ctrl.crearPublicacion = async (req, res) => {
-    // Se crea una nueva publicación
-    const publicacion = await Publicaciones.create(req.body);
-    res.send({
-        msg: "Publicación creada con éxito",
-        publicacion
-    })
+    try {
+        // Se crea una nueva publicación
+        const publicacion = await Publicaciones.create(req.body);
+        res.send({
+            msg: "Publicación creada con éxito",
+            publicacion
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            msg: "Error al crear nueva publicación"
+        })
+    }
 
 }
 
