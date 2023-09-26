@@ -16,7 +16,7 @@ const mostrarPublicaciones = (publicaciones, elementoHtml) => {
             <div class="d-flex flex-column justify-content-between">
                 <h5>${publicacion.titulo}</h5>
                 <p>${publicacion.descripcion}</p>
-                <p>${publicacion.fecha}</p>
+                <p>publicado el: ${(publicacion.fecha).split('T')[0]}</p>
             </div>
             </section>
         `

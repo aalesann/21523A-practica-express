@@ -17,7 +17,7 @@ const mostrarPublicaciones = (publicaciones = [], elementoHtml) => {
                 </td>
                 <td>${publicacion.titulo}</td>
                 <td>${publicacion.descripcion}</td>
-                <td>${ publicacion.fecha }</td>
+                <td>${ (publicacion.fecha).split('T')[0] }</td>
                 <td>
                     <a href="/admin/editar-publicacion/${publicacion.id}" class="btn btn-sm btn-warning">Editar</a>
                     <button class="btn btn-danger btn-sm btn-eliminar" id="${publicacion.id}">Eliminar</button>
