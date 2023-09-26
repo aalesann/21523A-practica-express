@@ -22,7 +22,6 @@ ctrl.crearPublicacion = async (req, res) => {
 ctrl.obtenerPublicaciones = async (req, res) => {
     try {
         const publicaciones = await Publicaciones.findAll();
-        console.log("Pasó por aquí", publicaciones)
         return res.json(publicaciones)
     } catch (error) {
         console.log(error)
