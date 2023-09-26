@@ -1,5 +1,5 @@
 const obtenerPublicaciones = async () => {
-    const response = await fetch('/publicaciones')
+    const response = await fetch('/api/publicaciones')
     const data = await response.json()
     return data;
 }

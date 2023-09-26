@@ -7,6 +7,8 @@ const sequelize = new Sequelize('pruebadb', 'root', '', {
 });
 
 
+// sequelize.sync()
+
 module.exports = {
     sequelize,
     Sequelize,
